@@ -52,6 +52,20 @@ function deleteEmployee(){
         require_once VIEWS . "delete/deleteEmployee.php";
     }
 }
+
+function showEmployees(){
+    require_once VIEWS . "employee/employee.php";
+}
+function addEmployee(){
+    $check = createEmployee();
+    if(empty($check)){
+        get();
+        require_once VIEWS . "employee/employeeDashboard.php";
+    }else {
+        error($check);
+    }
+
+}
 /**
  * This function includes the error view with a message
  */

@@ -25,7 +25,7 @@ function deleteById($id){
   // echo $id;
   $connection = conn();
   $query = $connection->prepare("DELETE FROM employees WHERE id = ".$id.";");
-  echo "hola";
+  // echo "hola";
 
   try{
     $query->execute();
@@ -34,4 +34,33 @@ function deleteById($id){
   }catch (PDOException $e){
     return $e;
   }
+}
+
+// function updateEmployee($id){
+//   $connection = conn();
+//   $query = $connection->prepare("UPDATE employees SET name='$name' WHERE employees.id =".$id.";");
+//   // echo "hola";
+
+//   try{
+//     $query->execute();
+//     $employees = $query->fetchAll();
+//     return $employees;
+//   }catch (PDOException $e){
+//     return $e;
+//   }
+// };
+
+function createEmployee(){
+  $connection = conn();
+  $query = $connection->prepare("INSERT INTO employees (id, name, last_name, email, gender_id, avatar, age, phone_number, city, street_address, state, postal_code)
+  VALUES ('', 'salseo', 'asd', 'asd@gmail.com', '3', 'NULL', '21', '663593630', 'erer', 'rtrt', 'ffgg', '38320');");
+
+try{
+  $query->execute();
+  $employees = $query->fetchAll();
+  return $employees;
+}catch (PDOException $e){
+  return $e;
+}
+
 }
