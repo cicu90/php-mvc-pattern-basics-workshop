@@ -35,8 +35,6 @@ function getAllEmployees()
         error("there is a database error, try again");
     }
 }
-// echo "<br>" ;
-// echo "Function getAllEmployees called";
 /**
  * This function calls the corresponding model function and includes the corresponding view
  */
