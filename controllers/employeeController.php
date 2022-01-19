@@ -43,6 +43,15 @@ function getEmployee($request)
     //
 }
 
+function deleteEmployee(){
+
+    if(isset($_REQUEST['confirm'])){
+        deleteById($_GET["id"]);
+        getAllEmployees();
+    } else{
+        require_once VIEWS . "delete/deleteEmployee.php";
+    }
+}
 /**
  * This function includes the error view with a message
  */

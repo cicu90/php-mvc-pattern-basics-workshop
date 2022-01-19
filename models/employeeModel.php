@@ -4,7 +4,6 @@ require_once MODELS . "/helper/dbConnection.php";
 function get(){
   // return "entra";
   $connection = conn();
-
   $query = $connection->prepare("SELECT e.id, e.name, e.email, g.name as 'gender', e.city, e.age, e.phone_number
   FROM employees e
   INNER JOIN genders g ON e.gender_id = g.id
@@ -20,4 +19,19 @@ try{
 }
 
 function getById($id){
+}
+
+function deleteById($id){
+  // echo $id;
+  $connection = conn();
+  $query = $connection->prepare("DELETE FROM employees WHERE id = ".$id.";");
+  echo "hola";
+
+  try{
+    $query->execute();
+    $employees = $query->fetchAll();
+    return $employees;
+  }catch (PDOException $e){
+    return $e;
+  }
 }
