@@ -7,6 +7,19 @@ require_once MODELS . "employeeModel.php";
 //Keep in mind that the function to be executed has to be one of the ones declared in this controller
 // TODO Implement the logic
 
+$action = "";
+
+if (isset($_REQUEST["action"])) {
+    $action = $_REQUEST["action"];
+}
+
+if (function_exists($action)) {
+    // call_user_func($action, $_REQUEST);
+    $action();
+    echo "Encuentra la Funcion";
+} else {
+    error("No encuentra la función");
+}
 
 /* ~~~ CONTROLLER FUNCTIONS ~~~ */
 
@@ -15,9 +28,15 @@ require_once MODELS . "employeeModel.php";
  */
 function getAllEmployees()
 {
-    //
+    $employees = get(); //el cliente pide todos los empleados
+    if (isset($employees)) {
+        require_once VIEWS . "/employee/employeeDashboard.php";
+    } else {
+        error("there is a database error, try again");
+    }
 }
-
+// echo "<br>" ;
+// echo "Function getAllEmployees called";
 /**
  * This function calls the corresponding model function and includes the corresponding view
  */
