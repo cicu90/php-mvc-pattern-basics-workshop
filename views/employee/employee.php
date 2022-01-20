@@ -93,7 +93,7 @@
     <button class="btn btn-primary" type="submit">Submit</button>
   </div>
   <div class="col-2">
-    <button
+    <button>
     <a id="home" class="btn btn-secondary" href="./">Back</a>
     </button>
   </div>

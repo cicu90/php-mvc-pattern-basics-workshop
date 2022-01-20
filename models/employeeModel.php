@@ -51,9 +51,11 @@ function deleteById($id){
 // };
 
 function createEmployee(){
+  echo "createEmployee";
+
   $connection = conn();
-  $query = $connection->prepare("INSERT INTO employees (id, name, last_name, email, gender_id, avatar, age, phone_number, city, street_address, state, postal_code)
-  VALUES ('', 'salseo', 'asd', 'asd@gmail.com', '3', 'NULL', '21', '663593630', 'erer', 'rtrt', 'ffgg', '38320');");
+  $query = $connection->prepare("INSERT INTO employees (name, last_name, email, gender_id, avatar, age, phone_number, city, street_address, state, postal_code)
+  VALUES ('salseo', 'asd', 'asd@gmail.com', '3', 'NULL', '21', '663593630', 'erer', 'rtrt', 'ffgg', '38320');");
 
 try{
   $query->execute();

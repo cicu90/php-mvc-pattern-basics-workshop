@@ -53,13 +53,18 @@ function deleteEmployee(){
     }
 }
 
-function showEmployees(){
+function showEmployees(){ // when you click on the create botom
+    echo "ShoEmployees";
+
     require_once VIEWS . "employee/employee.php";
 }
+
 function addEmployee(){
+    echo "addEmployee";
     $check = createEmployee();
+
     if(empty($check)){
-        get();
+        getAllEmployees();
         require_once VIEWS . "employee/employeeDashboard.php";
     }else {
         error($check);
